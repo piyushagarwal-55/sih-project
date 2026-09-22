@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* System fonts on purpose: no network fetch, so the demo works on an offline LAN. */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+  --color-ink-950: #070a10;
+  --color-ink-900: #0b1019;
+  --color-ink-850: #0f1622;
+  --color-ink-800: #141d2b;
+  --color-ink-700: #1f2a3b;
+  --color-ink-600: #2c3a50;
+  --color-ink-400: #7d8ba1;
+  --color-ink-300: #a6b2c4;
+  --color-ink-100: #e6ebf2;
+
+  --color-saffron-500: #e2472a;
+  --color-saffron-400: #f0643f;
+  --color-saffron-300: #f79a7c;
+
+  --color-live: #ef4444;
+  --color-ok: #22c55e;
+  --color-warn: #f59e0b;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--color-ink-950);
+  color: var(--color-ink-100);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.82); }
+}
+.pulse-dot { animation: pulse-dot 1.4s ease-in-out infinite; }
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+.scanline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgb(226 71 42 / 0.08), transparent);
+  animation: scan 3.2s linear infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot, .scanline::after { animation: none; }
+}

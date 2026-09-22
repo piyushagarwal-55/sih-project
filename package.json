@@ -1,0 +1,21 @@
+{
+  "name": "divya-drishti",
+  "private": true,
+  "description": "Divya Drishti: live multi-camera surveillance intelligence (SIH 2026)",
+  "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": ">=20.9"
+  },
+  "scripts": {
+    "bootstrap": "pnpm install && pnpm --filter @divya/ingest run setup && pnpm --filter @divya/web run cert",
+    "dev": "turbo run dev",
+    "dev:lan": "turbo run dev:lan",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "simulate": "pnpm --filter @divya/ingest run simulate"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.0"
+  }
+}

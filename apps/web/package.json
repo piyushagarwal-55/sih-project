@@ -1,0 +1,33 @@
+{
+  "name": "@divya/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "dev:lan": "node server.mjs --https",
+    "build": "next build",
+    "start": "node server.mjs --prod",
+    "start:lan": "node server.mjs --prod --https",
+    "typecheck": "tsc --noEmit",
+    "cert": "node scripts/make-cert.mjs"
+  },
+  "dependencies": {
+    "@divya/contracts": "workspace:*",
+    "http-proxy": "^1.18.1",
+    "next": "^15.3.0",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/http-proxy": "^1.17.15",
+    "@types/node": "^20.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "selfsigned": "^2.4.1",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.7.0"
+  }
+}
